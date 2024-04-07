@@ -7,8 +7,8 @@
     <img src="../static/images/farmer_clip.jpg" id="farm_clip" alt="">
     <h1>Contact Us</h1>
     <form action="/support" method="post" id="finan-form">
-        <input type="text" name="name" placeholder="Name">
-        <input type="number" name="age" placeholder="Age">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="number" name="age" placeholder="Age" required>
         <div class="radio_enclose">
         <input type="radio" name="gender" placeholder="male">
         male
@@ -18,11 +18,11 @@
         female
         </div>
 
-        <input type="number" name="phonenumber" placeholder="Phone Number">
-        <input type="text" name="city" placeholder="City">
-        <input type="text" name="state" placeholder="State">
-        <input type="text" name="country" placeholder="Country">
-        <input type="text" name="message" id="msg" placeholder="Message">
+        <input type="number" name="phonenumber" placeholder="Phone Number" required>
+        <input type="text" name="city" placeholder="City" required>
+        <input type="text" name="state" placeholder="State" required>
+        <input type="text" name="country" placeholder="Country" required>
+        <input type="text" name="message" id="msg" placeholder="Message" required>
         <button id="btn" >Submit</button>
     </form>
 </div>

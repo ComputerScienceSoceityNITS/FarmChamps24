@@ -103,17 +103,20 @@ def financials():
 @app.route("/support",methods=['GET', 'POST'])
 def support():
     if(request.method=='POST'):
-        # name = request.form.get('name')
-        # age = request.form.get('age')
-        # phonenumber = request.form.get('phonenumber')
-        # city_village = request.form.get('city_village')
-        # state = request.form.get('state')
-        # country = request.form.get('country')
-        # message = request.form.get('message')
+        name = request.form.get('name')
+        age = request.form.get('age')
+        phonenumber = request.form.get('phonenumber')
+        city_village = request.form.get('city_village')
+        state = request.form.get('state')
+        country = request.form.get('country')
+        message = request.form.get('message')
+        if(len(name) == 0 or len(age) == 0 or len(phonenumber) == 0 or len(city_village) == 0 or len(state) == 0 or len(country) == 0 or len(message) == 0):
+            flash("Please fill all the fields")
         # entry = Login(name=name, age=age, phonenumber=phonenumber, city_village = city_village,state= state,country=country,message=message )
         # db.session.add(entry)
         # db.session.commit()
-        flash("your form is submitted successfully")
+        else :
+            flash("your form is submitted successfully")
 
     return render_template("support.html")
 
