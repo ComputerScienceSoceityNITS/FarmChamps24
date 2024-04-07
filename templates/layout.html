@@ -63,8 +63,13 @@
         </div>
     </div>
     <script>
+        flash = document.getElementById('flash_msg')
+
+        if(flash){
+            setTimeout(()=>{flash.classList.add('fadeout')},3000)
+        }
         function flash_click() {
-            flash = document.getElementById('flash_msg')
+            
             flash.style.display = 'none'
         }
     </script>
