@@ -2,6 +2,36 @@ body{
     background: #B9FFF2;
 }
 
+#current{
+    position: relative;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#current input{
+    padding: 14px;
+    width: 300px;
+    margin: 0px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border: 0px;
+    background: #F3FEFE;
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+
+#current button{
+    text-align: center;
+    width: 60px;
+    padding: 14px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border: 0px;
+    background: #a6a9a7;
+    margin-top: 0px;
+}
+
 .wthr_box{
     width: 70%;
     background: #1cf38b84;

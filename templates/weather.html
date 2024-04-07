@@ -17,7 +17,13 @@
 
 <div class="body">
     <link rel="stylesheet" href="../static/styles/weather.css">
+    <form action="/weather" method="get" id="current">
+        <input placeholder="Find weather by city name" name="city">
+        <button type="submit">Search</button>
+    </form>
+    
     <div class="wthr_box">
+        
         <img src="../static/images/home_logo.jpg" class="icons" id="home_logo" alt="">
         <h1 class="city">{{city}}</h1>
         <img src="../static/images/weather.jpg" id="weather_clip" alt="">
