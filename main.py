@@ -66,24 +66,41 @@ def login():
 
 @app.route("/weather")
 def weather():
-    # weather json
-    lat = 26.14
-    lon = 91.73
     API_key = '22538e054719782037738ce38f8fac32'
-    wthr_json = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}&units=metric")
-    wthr_json_str = wthr_json.text
-    wthr = json.loads(wthr_json_str)
+    city = request.args.get('city')
+    if(city):
+        wthr_json = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_key}&units=metric")
+        wthr_json_str = wthr_json.text
+        wthr = json.loads(wthr_json_str)
+    # weather json
+    else:
+        lat = 26.14
+        lon = 91.73
+        wthr_json = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}&units=metric")
+        wthr_json_str = wthr_json.text
+        wthr = json.loads(wthr_json_str)
 
     # present
-    city = wthr['name']
-    country = wthr['sys']['country']
-    cloudiness = wthr['clouds']['all']
-    temp_present = wthr['main']['temp']
-    temp_min = wthr['main']['temp_min']
-    temp_max = wthr['main']['temp_max']
-    humidity = wthr['main']['humidity']
-    wthr_main = wthr['weather'][0]['main']
-    wind_speed = wthr['wind']['speed']
+    if(wthr['cod'] == '404'):
+        city = '404 not found'
+        country = 'Not Found'
+        cloudiness = ''
+        temp_present = ''
+        temp_min = '' 
+        temp_max = ''
+        humidity = ''
+        wthr_main = ''
+        wind_speed = ''
+    else :
+        city = wthr['name']
+        country = wthr['sys']['country']
+        cloudiness = wthr['clouds']['all']
+        temp_present = wthr['main']['temp']
+        temp_min = wthr['main']['temp_min']
+        temp_max = wthr['main']['temp_max']
+        humidity = wthr['main']['humidity']
+        wthr_main = wthr['weather'][0]['main']
+        wind_speed = wthr['wind']['speed']
     print(wthr_json_str)
 
     # forcast
