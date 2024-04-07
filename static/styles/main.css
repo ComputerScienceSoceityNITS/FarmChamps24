@@ -175,3 +175,8 @@ nav ul a{
     cursor: pointer;
 }
 
+.fadeout{
+    opacity: 0;
+    transition: 2s;
+}
+
