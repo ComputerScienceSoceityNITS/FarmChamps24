@@ -35,60 +35,25 @@
                 <h2>MIN: {{temp_min}}<sup>0</sup>C</h2>
             </div>
         </div>
-        <div class="forcast">
-            <div class="day">
-            <div class="frcst_cont">Monday</div>
-            <div class="frcst_cont">25th April</div>
-            <div class="frcst_cont">clear</div>
-            <div class="frcst_cont">33</div>
-            <div class="frcst_cont">26</div></div>
-            
-        </div>
-        <div class="forcast">
-            <div class="day">
-            <div class="frcst_cont">Monday</div>
-            <div class="frcst_cont">25th April</div>
-            <div class="frcst_cont">clear</div>
-            <div class="frcst_cont">33</div>
-            <div class="frcst_cont">26</div></div>
-            
-        </div>
-        <div class="forcast">
-            <div class="day">
-            <div class="frcst_cont">Monday</div>
-            <div class="frcst_cont">25th April</div>
-            <div class="frcst_cont">clear</div>
-            <div class="frcst_cont">33</div>
-            <div class="frcst_cont">26</div></div>
-            
-        </div>
-        <div class="forcast">
-            <div class="day">
-            <div class="frcst_cont">Monday</div>
-            <div class="frcst_cont">25th April</div>
-            <div class="frcst_cont">clear</div>
-            <div class="frcst_cont">33</div>
-            <div class="frcst_cont">26</div></div>
-            
-        </div>
-        <div class="forcast">
-            <div class="day">
-            <div class="frcst_cont">Monday</div>
-            <div class="frcst_cont">25th April</div>
-            <div class="frcst_cont">clear</div>
-            <div class="frcst_cont">33</div>
-            <div class="frcst_cont">26</div></div>
-            
-        </div>
-        <div class="forcast">
-            <div class="day">
-            <div class="frcst_cont">Monday</div>
-            <div class="frcst_cont">25th April</div>
-            <div class="frcst_cont">clear</div>
-            <div class="frcst_cont">33</div>
-            <div class="frcst_cont">26</div></div>
-            
-        </div>
+        <script>
+            const container = document.getElementById('forecast-container');
+            const forecastData = JSON.parse('{{frcst|tojson|safe}}');
+            console.log(forecastData);
+                const div = document.createElement('div');
+                forecastData.list.map((data) => {
+                    console.log(data);
+                    var date = new Date(data.dt)
+                    div.innerHTML = `
+                    <div class="forecast">
+                        <div class="day">
+                            <div class="frcst_cont">${date.toDateString()}</div>
+                            <div class="frcst_cont">${data.weather[0].main}</div>
+                            <div class="frcst_cont">${data.temp.max}<sup>0</sup>C</div>
+                            <div class="frcst_cont">${data.temp.min}<sup>0</sup>C</div>
+                    </div>
+                    `;})
+                container.appendChild(div);
+        </script>
     </div>
 </div>
 
