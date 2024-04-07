@@ -103,17 +103,20 @@ def financials():
 @app.route("/support",methods=['GET', 'POST'])
 def support():
     if(request.method=='POST'):
-        # name = request.form.get('name')
-        # age = request.form.get('age')
-        # phonenumber = request.form.get('phonenumber')
-        # city_village = request.form.get('city_village')
-        # state = request.form.get('state')
-        # country = request.form.get('country')
-        # message = request.form.get('message')
+        name = request.form.get('name')
+        age = request.form.get('age')
+        phonenumber = request.form.get('phonenumber')
+        city_village = request.form.get('city_village')
+        state = request.form.get('state')
+        country = request.form.get('country')
+        message = request.form.get('message')
+        if age>100 or age<12:
+            flash("Please enter a valid age between 12 and 100")
         # entry = Login(name=name, age=age, phonenumber=phonenumber, city_village = city_village,state= state,country=country,message=message )
         # db.session.add(entry)
         # db.session.commit()
-        flash("your form is submitted successfully")
+        else :
+            flash("your form is submitted successfully")
 
     return render_template("support.html")
 
